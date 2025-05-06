@@ -112,7 +112,7 @@ const Index = () => {
             </div>
             <div className="hidden md:block">
               <img 
-                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000"
+                src="C3Logo.png"
                 alt="Students collaborating" 
                 className="rounded-lg shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500"
               />

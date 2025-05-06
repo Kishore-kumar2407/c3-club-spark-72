@@ -22,7 +22,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <div className="bg-gradient-to-r from-club-purple to-club-pink p-1 rounded-md">
-              <span className="font-bold text-white text-xl">C³</span>
+              <span className="font-bold text-white text-xl">
+                C3
+              </span>
             </div>
             <span className="font-semibold text-xl hidden md:block">Club</span>
           </Link>
