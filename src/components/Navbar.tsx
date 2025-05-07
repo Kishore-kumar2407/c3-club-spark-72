@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -22,11 +21,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <div className="bg-gradient-to-r from-club-purple to-club-pink p-1 rounded-md">
-              <span className="font-bold text-white text-xl">
-                C3
-              </span>
+              <span className="font-bold text-white text-xl">C3</span>
             </div>
-            <span className="font-semibold text-xl hidden md:block">Club</span>
+            {/* Now visible on all screen sizes */}
+            <span className="font-semibold text-xl block">Club</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -39,7 +37,9 @@ const Navbar = () => {
                 </Link>
               </Button>
             ))}
-            <Button className="ml-2 bg-gradient-to-r from-club-purple to-club-pink hover:opacity-90">Register</Button>
+            <Button className="ml-2 bg-gradient-to-r from-club-purple to-club-pink hover:opacity-90">
+              Register
+            </Button>
           </div>
 
           {/* Mobile Navigation Toggle */}
