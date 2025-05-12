@@ -83,7 +83,7 @@ const ContactPage = () => {
       
       toast({
         title: "Application submitted!",
-        description: "We'll get back to you soon about joining C3 Club.",
+        description: "We'll get back to you soon about joining C3.",
       });
       
       form.reset();
@@ -178,7 +178,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold">Email</h3>
-                        <a href="mailto:c3Cahcet@gmail.com" className="text-club-purple hover:underline">c3Cahcet@gmail.com</a>
+                        <a href="mailto:c3official@cahcet.edu.in" className="text-club-purple hover:underline">c3official@cahcet.edu.in</a>
                       </div>
                     </div>
                     
@@ -212,7 +212,7 @@ const ContactPage = () => {
                 <CardContent className="pt-6">
                   <h2 className="text-2xl font-bold text-center mb-6">Join the Club</h2>
                   
-                  <Form {...form}>
+                  {/* <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                       <FormField
                         control={form.control}
@@ -306,14 +306,38 @@ const ContactPage = () => {
                         className="w-full bg-gradient-to-r from-club-purple to-club-pink"
                         disabled={isSubmitting}
                       >
-                        {isSubmitting ? "Submitting..." : "Submit Application"}
+                        {isSubmitting ? "Submitting..." : "Join Now"}
                       </Button>
                       
                       <p className="text-center text-sm text-gray-500 mt-4">
                         We'll review your application and get back to you within 2-3 days.
                       </p>
                     </form>
-                  </Form>
+                  </Form> */}
+                 <div className="flex flex-col justify-center items-center space-y-4">
+                      <div className="hidden md:block">
+                            <img 
+                              src="Join_Rocket.png"
+                              alt="Students collaborating" 
+                              className="rounded-lg shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 h-96"
+                            />
+                      </div>
+                      <a href="https://forms.gle/DTFQZ88Crkp9gLvHA" onClick={()=>setIsSubmitting(!isSubmitting)}
+                       className="w-full max-w-xl"
+                      >
+                            <Button 
+                                    type="submit" 
+                                    className="w-full bg-gradient-to-r from-club-purple to-club-pink"
+                                    disabled={isSubmitting}
+                                  >
+                                    {isSubmitting ? "Submitting..." : "Join Now"}
+                              </Button>
+                      </a>
+                            
+                 </div>
+                      <p className="text-center text-sm text-gray-500 mt-4">
+                        We'll review your application and get back to you within 2-3 days.
+                      </p>
                 </CardContent>
               </Card>
               
