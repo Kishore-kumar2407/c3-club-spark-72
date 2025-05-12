@@ -66,7 +66,7 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold mb-4">Contact Us</h4>
             <p className="text-gray-300 mb-2">
-              Email: <a href="mailto:c3Cahcet@gmail.com" className="hover:text-white">c3Cahcet@gmail.com</a>
+              Email: <a href="mailto:c3official@cahcet.edu.in" className="hover:text-white">c3official@cahcet.edu.in</a>
             </p>
             <p className="text-gray-300 mb-2">
               Phone: <a href="tel:8608389224" className="hover:text-white">8608389224</a>
@@ -80,7 +80,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 pt-6">
           <p className="text-center text-gray-300">
-            &copy; {new Date().getFullYear()} C3 Club. All rights reserved.
+            &copy; {new Date().getFullYear()} C3 . All rights reserved.
           </p>
         </div>
       </div>
