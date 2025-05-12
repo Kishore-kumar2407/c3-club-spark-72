@@ -19,14 +19,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { supabase } from "@/lib/supabase";
-import { useAuth } from "@/contexts/AuthContext";
+// import { useAuth } from "@/lib/supabase";
 
 const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const { setIsRegistered } = useAuth();
-  
+  // const user = useAuth();
   const formSchema = z.object({
     fullName: z.string(),
     email: z.string().email(),
@@ -46,43 +44,42 @@ const Index = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
 
-    try {
-      // Store registration data in Supabase
-      const { data, error } = await supabase
-        .from('registrations')
-        .insert([
-          {
-            name: values.fullName,
-            email: values.email,
-            year: values.year,
-          }
-        ]).select(); // It's often a good practice to .select() after insert to get the inserted data back
+    // try {
+    //   // Store registration data in Supabase
+    //   const { data, error } = await supabase
+    //     .from('registrations')
+    //     .insert([
+    //       {
+    //         name: values.fullName,
+    //         email: values.email,
+    //         year: values.year,
+    //       }
+    //     ]).select(); // It's often a good practice to .select() after insert to get the inserted data back
 
-      // Save user data to local storage
-      localStorage.setItem('c3_user_session', JSON.stringify({
-        name: values.fullName,
-        email: values.email,
-        year: values.year
-      }));
+    //   // Save user data to local storage
+    //   localStorage.setItem('c3_user_session', JSON.stringify({
+    //     name: values.fullName,
+    //     email: values.email,
+    //     year: values.year
+    //   }));
 
-      setIsRegistered(true);
 
-      toast({
-        title: "Registration successful!",
-        description: "You've been registered. You can now access all features.",
-      });
+    //   toast({
+    //     title: "Registration successful!",
+    //     description: "You've been registered. You can now access all features.",
+    //   });
 
-      form.reset();
-    } catch (error: any) {
-      console.log("error happens");
-      toast({
-        title: "Registration failed",
-        description: error.message || "Please try again later",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    //   form.reset();
+    // } catch (error: any) {
+    //   console.log("error happens");
+    //   toast({
+    //     title: "Registration failed",
+    //     description: error.message || "Please try again later",
+    //     variant: "destructive",
+    //   });
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
   }
 
   return (
@@ -93,10 +90,10 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                C3 CLUB – Explore, Learn, Lead!
+                C3 – Explore, Learn, Lead!
               </h1>
               <p className="text-lg md:text-xl opacity-90">
-                Welcome to the official website of C3 Club, the heart of innovation and curiosity in the Computer Science Department!
+                Welcome to the official website of C3 , the heart of innovation and curiosity in the Computer Science Department!
                 We're excited to invite all junior students to our exclusive event:
                 "Pathways in Computer Science – Discover Your Future!"
               </p>
@@ -129,7 +126,7 @@ const Index = () => {
               <CardContent className="pt-6">
                 <h2 className="text-2xl font-bold text-center mb-6">Register Now</h2>
                 
-                <Form {...form}>
+                {/* <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
                       control={form.control}
@@ -191,25 +188,34 @@ const Index = () => {
                       {isSubmitting ? "Registering..." : "Register Now"}
                     </Button>
                   </form>
-                </Form>
+                </Form> */}
+                <a href="https://forms.gle/NCYGnvM6iEmJt6yU8" onClick={()=>setIsSubmitting(!isSubmitting)}>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-club-purple to-club-pink"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Registering..." : "Register Now"}
+                    </Button>
+                </a>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* About C3 Club */}
+      {/* About C3 */}
       <section className="py-16 bg-club-light-purple/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="section-title">About C3 Club</h2>
+            <h2 className="section-title">About C3 </h2>
             <p className="text-lg max-w-3xl mx-auto text-gray-600">
-              <span className="font-bold text-club-purple">C3 stands for Code | Create | Connect</span>
+              <span className="font-bold text-club-purple">C3 stands for Campus to Corporate Club</span>
             </p>
             <p className="text-lg max-w-3xl mx-auto text-gray-600 mt-4">
               We're a passionate group of students and mentors dedicated to exploring the vast world of computer science. 
               Whether you're into AI, web dev, cybersecurity, or just figuring out where to start, 
-              C3 Club is your space to grow, share, and innovate.
+              C3 is your space to grow, share, and innovate.
             </p>
           </div>
           
@@ -269,7 +275,7 @@ const Index = () => {
                 <div className="space-y-4">
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
-                    <a href="mailto:c3Cahcet@gmail.com" className="text-club-purple hover:underline">c3Cahcet@gmail.com</a>
+                    <a href="mailto:c3official@cahcet.edu.in" className="text-club-purple hover:underline">c3official@cahcet.edu.in</a>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Phone</h3>
